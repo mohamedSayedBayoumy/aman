@@ -6,16 +6,16 @@ import 'package:test2/peresntation/components/text_component.dart';
 
 import 'drop_list_component.dart';
 
-class ContentId extends StatefulWidget {
+class PersonalIdentification extends StatefulWidget {
   Widget? widget;
 
-  ContentId({Key? key}) : super(key: key);
+  PersonalIdentification({Key? key}) : super(key: key);
 
   @override
-  State<ContentId> createState() => _ContentIdState();
+  State<PersonalIdentification> createState() => PersonaIdentificationState();
 }
 
-class _ContentIdState extends State<ContentId> {
+class PersonaIdentificationState extends State<PersonalIdentification> {
   static List<String> typeId = [
     "نوع الهوية",
     "جواز سفر",

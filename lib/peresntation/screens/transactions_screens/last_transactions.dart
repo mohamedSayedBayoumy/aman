@@ -9,6 +9,7 @@ import '../../components/app_bar/drawer_component.dart';
 import '../../components/general_button_component.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
+import '../../drawer.dart';
 import 'current_transactions.dart';
 
 class LastTransaction extends StatelessWidget {
@@ -108,15 +109,12 @@ class LastTransaction extends StatelessWidget {
     final media = MediaQuery.of(context).size;
     return Scaffold(
       appBar: CustomAppBar(
-          needIconBell: true,
-          customSize: media.height * .12,
-          onPressedButtonMenu: () {
-            /// TODO  :
-          },
-          onPressedButtonBack: () {
-            /// TODO  :
-          },
-          title: "المعاملات السابقة"),
+        needIconBell: true,
+        needBackButton: true,
+        customSize: media.height * .12,
+        title: 'المعاملات السابقة',
+      ),
+      drawer: MainDrawer(),
       drawerDragStartBehavior: DragStartBehavior.down,
       endDrawer: DrawerComponent(),
       body: Padding(
@@ -129,14 +127,17 @@ class LastTransaction extends StatelessWidget {
             return Column(
               children: [
                 GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => CurrentTransactionsScreen(showWidget: true),)) ;
+                  },
                   child: Container(
                     width: media.width,
                     height: media.height * .20,
                     padding:
-                        EdgeInsets.symmetric(horizontal: media.width * .04),
+                        EdgeInsets.symmetric(horizontal: media.width * .03),
                     decoration: BoxDecoration(
                       color: Colors.grey.shade300,
-                      // color: Colors.red,
+
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: Row(
@@ -176,23 +177,22 @@ class LastTransaction extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SpaceComponent(
-                          width: media.width * .12,
-                        ),
+                        SpaceComponent(),
                         Expanded(
-                          flex: 7,
+                          flex: 8,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                width: media.width * .4,
-                                child: TextComponent(
-                                    text: demoDataList[index].name,
-                                    colorText: Colors.black87,
-                                    isBold: true,
-                                    fontSize: 23.0),
-                              ),
+                                Container(
+                                  width: media.width,
+                                  child: TextComponent(
+                                      text: demoDataList[index].name,
+                                      colorText: Colors.black87,
+                                      isBold: true,
+                                      fontSize: 19.0),
+                                ),
+
                               SpaceComponent(
                                 width: media.width * .03,
                               ),

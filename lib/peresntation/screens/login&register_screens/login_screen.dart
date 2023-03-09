@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:test2/peresntation/screens/login&register_screens/register_screen.dart';
-
 
 import '../../components/app_bar/custom_app_bar.dart';
 import '../../components/general_button_component.dart';
@@ -9,13 +7,13 @@ import '../../components/genral_padding.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
 import '../../components/textfiled_component.dart';
+import '../../drawer.dart';
 import '../../fingerprint.dart';
 import '../../home.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+    LoginScreen({Key? key}) : super(key: key);
 
-  static bool selectChoiceCountries = false;
 
   static List<String> countries = [
     "مصر",
@@ -27,19 +25,27 @@ class LoginScreen extends StatelessWidget {
   ];
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController() ;
+
+  TextEditingController passWordController = TextEditingController() ;
+
+  bool selectChoiceCountries = false;
+
+  @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;
     return Scaffold(
       appBar: CustomAppBar(
-          customSize: media.height * .12,
-          needIconBell: false,
-          title: 'تسجيل الدخول',
-          onPressedButtonBack: () {
-            /// TODO : SOME THING
-          },
-          onPressedButtonMenu: () {
-            /// TODO : SOME THING
-          }),
+        needIconBell: false,
+        needBackButton: false,
+        customSize: media.height * .12,
+        title: 'تسجيل الدخول',
+      ),
+      drawer: MainDrawer(),
       body: GeneralPadding(
         child: ListView(
           children: [
@@ -48,13 +54,12 @@ class LoginScreen extends StatelessWidget {
             ),
             CustomTextField(
               prefixIcon: Icons.email_outlined,
-              controller: TextEditingController(),
+              controller: emailController,
               labelText: "البريد الالكتروني",
               curveBorder: 6.0,
               fill: true,
               fillColor: Colors.grey.shade300,
               borderColor: Colors.grey.shade200,
-
             ),
             SpaceComponent(
               height: media.height * .03,
@@ -65,7 +70,7 @@ class LoginScreen extends StatelessWidget {
               onPressedSuffixIcon: () {
                 /// TODO : show Password
               },
-              controller: TextEditingController(),
+              controller: passWordController,
               labelText: "كلمة المرور",
               curveBorder: 6.0,
               fill: true,
@@ -92,7 +97,9 @@ class LoginScreen extends StatelessWidget {
                   shape: const CircleBorder(),
                   value: selectChoiceCountries,
                   onChanged: (value) {
-                    /// TODO : S
+                    setState(() {
+                      selectChoiceCountries = value! ;
+                    });
                   },
                 ),
                 SpaceComponent(
@@ -102,7 +109,7 @@ class LoginScreen extends StatelessWidget {
             ),
             GeneralButton(
               onPressed: () {
-                 Navigator.push(
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => HomePage(),
@@ -120,7 +127,7 @@ class LoginScreen extends StatelessWidget {
             SpaceComponent(),
             GeneralButton(
               onPressed: () {
-                 Navigator.push(
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => FingerprintAuthenticationScreen(),
@@ -154,12 +161,16 @@ class LoginScreen extends StatelessWidget {
               children: [
                 TextButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) =>   RegisterScreen(),)) ;
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RegisterScreen(),
+                          ));
                     },
-                    child:  TextComponent(
-                      text : "اضغط هنا للستجيل",
-                      colorText:  Colors.pinkAccent ,
-                      isBold: true ,
+                    child: TextComponent(
+                      text: "اضغط هنا للستجيل",
+                      colorText: Colors.pinkAccent,
+                      isBold: true,
                       fontSize: 13.0,
                     )),
                 TextComponent(

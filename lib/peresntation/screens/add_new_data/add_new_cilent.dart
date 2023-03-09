@@ -12,6 +12,7 @@ import '../../components/genral_padding.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
 import '../../components/textfiled_component.dart';
+import '../../drawer.dart';
 
 class AddNewClient extends StatefulWidget {
   const AddNewClient({Key? key}) : super(key: key);
@@ -104,6 +105,8 @@ class _AddNewClientState extends State<AddNewClient> {
   TextEditingController ATMNumberController = TextEditingController();
   TextEditingController AddNewPhoneController = TextEditingController();
 
+  TextEditingController accountType =  TextEditingController();
+
   TextEditingController confirmationATMNumberController =
       TextEditingController();
 
@@ -130,17 +133,15 @@ class _AddNewClientState extends State<AddNewClient> {
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: CustomAppBar(
-          needIconBell: true,
-          customSize: media.height * .12,
-          title: "مستفيد جديد",
-          onPressedButtonBack: () {
-            /// TODO : SOME THING
-          },
-          onPressedButtonMenu: () {
-            /// TODO : SOME THING
-          }),
+        needIconBell: true,
+        needBackButton: true,
+        customSize: media.height * .12,
+        title: 'تفاصيل التحويل',
+      ),
+      drawer: MainDrawer(),
       drawerDragStartBehavior: DragStartBehavior.down,
       endDrawer:    DrawerComponent(),
       body: GeneralPadding(
@@ -219,6 +220,7 @@ class _AddNewClientState extends State<AddNewClient> {
                                     controller: AddNewPhoneController,
                                     labelText: "اضافة هاتف جديد",
                                   ),
+                                  SpaceComponent() ,
                                   GeneralButton(
                                     width: media.width * 2,
                                     onPressed: () {},
@@ -298,7 +300,7 @@ class _AddNewClientState extends State<AddNewClient> {
                     secondChild: Padding(
                       padding: EdgeInsets.only(top: media.height * .01),
                       child: CustomTextField(
-                        controller: TextEditingController(),
+                        controller: accountType,
                         labelText: "نوع الحساب",
                       ),
                     ),
@@ -312,7 +314,7 @@ class _AddNewClientState extends State<AddNewClient> {
                     controller: ATMNumberController,
 
                     /// <= show this when he choose "اخري"
-                    labelText: "رقم بطاقة الصرف",
+                    labelText: "رقم بطاقة الصراف",
                   ),
                   SpaceComponent(),
                   CustomTextField(
@@ -333,6 +335,7 @@ class _AddNewClientState extends State<AddNewClient> {
                   : CrossFadeState.showSecond,
               duration: const Duration(milliseconds: 800),
             ),
+            SpaceComponent() ,
             GeneralButton(
               width: media.width * 2,
               onPressed: () {},

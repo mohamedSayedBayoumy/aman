@@ -5,6 +5,7 @@ import '../../components/app_bar/drawer_component.dart';
 import '../../components/genral_padding.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
+import '../../drawer.dart';
 
 class MyCard extends StatelessWidget {
   const MyCard({Key? key}) : super(key: key);
@@ -16,13 +17,8 @@ class MyCard extends StatelessWidget {
         appBar: CustomAppBar(
             customSize: media.height * .12,
             needIconBell: true,
-            onPressedButtonMenu: () {
-              /// TODO :
-            },
-            onPressedButtonBack: () {
-              /// TODO :
-            },
             title: "بطاقتي"),
+        drawer: MainDrawer(),
         drawerDragStartBehavior: DragStartBehavior.down,
         endDrawer: DrawerComponent(),
         body:  

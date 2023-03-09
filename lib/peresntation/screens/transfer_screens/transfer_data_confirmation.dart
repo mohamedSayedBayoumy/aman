@@ -7,6 +7,7 @@ import '../../components/general_button_component.dart';
 import '../../../model.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
+import '../../drawer.dart';
 
 class ConfirmationTransferDataScreen extends StatelessWidget {
   ConfirmationTransferDataScreen({Key? key}) : super(key: key);
@@ -29,15 +30,12 @@ class ConfirmationTransferDataScreen extends StatelessWidget {
     final media = MediaQuery.of(context).size;
     return Scaffold(
         appBar: CustomAppBar(
-            needIconBell: true,
-            customSize: media.height * .12,
-            onPressedButtonMenu: () {
-              /// TODO :
-            },
-            onPressedButtonBack: () {
-              /// TODO :
-            },
-            title: "تأكيد بيانات التحويل"),
+          needBackButton: true,
+          needIconBell: true,
+          customSize: media.height * .12,
+          title: 'التحويل',
+        ),
+        drawer: MainDrawer(),
         drawerDragStartBehavior: DragStartBehavior.down,
         endDrawer: DrawerComponent(),
         body: DirectionalityComponent(

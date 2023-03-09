@@ -1,99 +1,5 @@
-// import 'package:aman/peresntation/components/genral_padding.dart';
-// import 'package:aman/peresntation/controller/controllers.dart';
-// import 'package:flutter/material.dart';
-// import '../components/appbar_component.dart';
-// import '../components/container_image_component.dart';
-// import '../components/general_button_component.dart';
-// import '../components/get_image.dart';
-// import '../components/space_component.dart';
-// import '../components/textfiled_component.dart';
-//
-// class AccountScreen extends StatefulWidget {
-//   AccountScreen({Key? key}) : super(key: key);
-//
-//   @override
-//   State<AccountScreen> createState() => _AccountScreenState();
-// }
-//
-// class _AccountScreenState extends State<AccountScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     final media = MediaQuery.of(context).size;
-//     Controller.convert();
-//     return Scaffold(
-//       appBar: NaturalAppBar(
-//           title: "أدارة الحساب",
-//           toolbarHeight: media.height*.13,
-//           customSize: media.height*.15,
-//           elevation: 0.0,
-//           needActionIconMenu: true,
-//           leading: IconButton(
-//               onPressed: () {
-//                       /// TODO : Some thing
-//               },
-//               icon: Image.asset(
-//                 "assets/icons/bell.png",
-//                 width: 25,
-//               ))),
-//       body:  ListView(
-//           // physics: const BouncingScrollPhysics(),
-//           shrinkWrap: true,
-//           children: [
-//             const BackGroundImageAccount(),
-//             // SpaceComponent(),
-//             CustomTextField(
-//                 styleBorder: const OutlineInputBorder(),
-//                 labelText: "الاسم باللغة الانجليزيه",
-//                 controller: Controller.nameEn),
-//             SpaceComponent(),
-//             CustomTextField(
-//                 styleBorder: const OutlineInputBorder(),
-//                 labelText: "الاسم باللغة العربيه",
-//                 controller: Controller.nameAr),
-//             SpaceComponent(),
-//             CustomTextField(
-//                 styleBorder: const OutlineInputBorder(),
-//                 labelText: "رقم الهاتف",
-//                 controller: Controller.number),
-//             SpaceComponent(),
-//             CustomTextField(
-//                 styleBorder: const OutlineInputBorder(),
-//                 labelText: "البريد الالكتروني",
-//                 controller: Controller.email),
-//             SpaceComponent(),
-//             CustomTextField(
-//                 styleBorder: const OutlineInputBorder(),
-//                 labelText: "كلمة المرور",
-//                 controller: Controller.passWord),
-//             SpaceComponent(),
-//             CustomTextField(
-//                 styleBorder: const OutlineInputBorder(),
-//                 labelText: "تأكيد كلمة المرور",
-//                 controller: Controller.confirmPassword),
-//             SpaceComponent(),
-//             CustomTextField(
-//                 styleBorder: const OutlineInputBorder(),
-//                 labelText: "العنوان",
-//                 controller: Controller.address),
-//             SpaceComponent(),
-//             CustomTextField(
-//                 styleBorder: const OutlineInputBorder(),
-//                 labelText: "تاريخ الميلاد",
-//                 controller: Controller.date),
-//             GetImageComponent(text: "اثبات الهوية"),
-//             GeneralButton(
-//                 onPressed: () {},
-//                 color: Colors.indigo,
-//                 child: const Text(
-//                   "تسجيل",
-//                   style: TextStyle(fontWeight: FontWeight.bold),
-//                 )),
-//           ],
-//         ),
-//
-//     );
-//   }
-// }
+
+// ignore_for_file: sized_box_for_whitespace, must_be_immutable
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -102,7 +8,7 @@ import '../../model.dart';
 import '../components/app_bar/appbar_component.dart';
 import '../components/app_bar/drawer_component.dart';
 import '../components/general_button_component.dart';
-import '../components/id_image.dart';
+import '../components/personal_identification.dart';
 import '../components/space_component.dart';
 import '../components/text_component.dart';
 import '../components/textfiled_component.dart';
@@ -347,7 +253,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             OutlinedButton(
                                 onPressed: () {
                                   alertDialog(context,
-                                      child: ContentId(),
+                                      child: PersonalIdentification(),
                                       stringTitle: "اختيار نوع الهوية");
                                 },
                                 child: const Text(

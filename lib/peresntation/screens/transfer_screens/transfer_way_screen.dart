@@ -10,6 +10,7 @@ import '../../components/genral_padding.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
 import '../../components/textfiled_component.dart';
+import '../../drawer.dart';
 
 class TransferWayScreen extends StatefulWidget {
   const TransferWayScreen({Key? key}) : super(key: key);
@@ -53,15 +54,12 @@ class _TransferWayScreenState extends State<TransferWayScreen> {
         .size;
     return Scaffold(
       appBar: CustomAppBar(
-          needIconBell: true,
-          customSize: media.height * .12,
-          title: 'اختيار طريقة التسليم',
-          onPressedButtonBack: () {
-            /// TODO : SOME THING
-          },
-          onPressedButtonMenu: () {
-            /// TODO : SOME THING
-          }),
+        needBackButton: true,
+        needIconBell: true,
+        customSize: media.height * .12,
+        title: 'التحويل',
+      ),
+      drawer: MainDrawer(),
       drawerDragStartBehavior: DragStartBehavior.down,
       endDrawer: DrawerComponent(),
       body: GeneralPadding(

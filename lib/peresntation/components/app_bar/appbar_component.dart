@@ -54,7 +54,7 @@ class _NaturalAppBarState extends State<NaturalAppBar> {
         automaticallyImplyLeading: false,
         centerTitle: widget.centerTitle == null ? true : false,
         toolbarHeight: widget.toolbarHeight ?? media.height * .1,
-        backgroundColor: Colors.indigo,
+        backgroundColor: widget.color ?? Colors.indigo,
         elevation: widget.elevation ?? 15.0,
         leading:  widget.needIconBell == true ? Builder(
           builder: (context) {

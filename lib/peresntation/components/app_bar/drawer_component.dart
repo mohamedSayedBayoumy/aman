@@ -26,7 +26,6 @@ class DrawerComponent extends StatelessWidget {
                 height: media.height,
               ),
             ),
-
             Positioned(
               top: media.height * .082,
               right: 0,
@@ -55,7 +54,6 @@ class DrawerComponent extends StatelessWidget {
               right: 0,
               child: Column(
                 children: [
-
                   SpaceComponent(
                     height: media.height * .05,
                   ),
@@ -74,14 +72,19 @@ class DrawerComponent extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          TextComponent(
-                              text: "حوالة واردة",
-                              fontSize: 18.0,
-                              colorText: Colors.white,
-                              isBold: true),
-                          Image.asset(
-                            "assets/black-circle.png",
-                            width: media.width * .2,
+                          Expanded(
+                            flex: 3,
+                            child: TextComponent(
+                                text: "حوالة واردة",
+                                fontSize: 18.0,
+                                colorText: Colors.white,
+                                isBold: true),
+                          ),
+                          Expanded(
+                            child: Image.asset(
+                              "assets/black-circle.png",
+                              width: media.width * .2,
+                            ),
                           ),
                         ],
                       ),
@@ -102,16 +105,21 @@ class DrawerComponent extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          TextComponent(
-                            isBold: true,
-                            text: "تأكيد البريد الالكتروني",
-                            fontSize: 18.0,
-                            colorText: Colors.white,
+                          Expanded(
+                            flex: 3,
+                            child: TextComponent(
+                                text: "تأكيد البريد الالكتروني",
+                                fontSize: 18.0,
+                                colorText: Colors.white,
+                                isBold: true),
                           ),
-                          Image.asset(
-                            "assets/black-circle.png",
-                            width: media.width * .2,
+                          Expanded(
+                            child: Image.asset(
+                              "assets/black-circle.png",
+                              width: media.width * .2,
+                            ),
                           ),
+
                         ],
                       ),
                     ),
@@ -131,16 +139,21 @@ class DrawerComponent extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          TextComponent(
-                            isBold: true,
-                            text: "تم اضافة عملة الجنيه المصري",
-                            fontSize: 18.0,
-                            colorText: Colors.white,
+                          Expanded(
+                            flex: 3,
+                            child: TextComponent(
+                                text: "تم اضافة عملة الجنيه المصري",
+                                fontSize: 18.0,
+                                colorText: Colors.white,
+                                isBold: true),
                           ),
-                          Image.asset(
-                            "assets/black-circle.png",
-                            width: media.width * .2,
+                          Expanded(
+                            child: Image.asset(
+                              "assets/black-circle.png",
+                              width: media.width * .2,
+                            ),
                           ),
+
                         ],
                       ),
                     ),

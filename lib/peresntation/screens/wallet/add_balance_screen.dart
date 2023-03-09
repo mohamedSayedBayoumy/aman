@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:test2/peresntation/drawer.dart';
 import '../../components/app_bar/custom_app_bar.dart';
 import '../../components/app_bar/drawer_component.dart';
 import '../../components/drop_list_component.dart';
@@ -15,12 +16,8 @@ class AddBalanceScreen extends StatelessWidget {
 
 
   static List<String> id = [
-    "مصر",
-    "السعوديه",
-    "الامارات",
-    "تركيا",
-    "امريكا",
-    "لبنان",
+   "card 1 " ,
+   "card 2 " ,
   ];
 
     dynamic selectChoiceId = id[0];
@@ -34,12 +31,9 @@ class AddBalanceScreen extends StatelessWidget {
             needIconBell: true,
             customSize: media.height * .12,
             title: 'تغذية المحفظة',
-            onPressedButtonBack: () {
-              /// TODO : SOME THING
-            },
-            onPressedButtonMenu: () {
-              /// TODO : SOME THING
-            }),
+            needBackButton: true,
+            ),
+        drawer: MainDrawer(),
         drawerDragStartBehavior: DragStartBehavior.down,
         endDrawer:    DrawerComponent(),
         body: GeneralPadding(
@@ -58,24 +52,33 @@ class AddBalanceScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              SpaceComponent(height: media.height*.03,) ,
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
+             mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextComponent(
-                    text: "210.540",
-                    isBold: true,
-                    colorText: Colors.green,
-                    fontSize: 50.0,
-                    fontFamily: "Anton",
+                  Expanded(
+                    flex: 4,
+                    child: TextComponent(
+                      text: "210.540",
+                      isBold: true,
+                      colorText: Colors.green,
+                      fontSize: 50.0,
+                      fontFamily: "Anton",
+                    ),
                   ),
                   SpaceComponent(
                     width: media.width * .02,
                   ),
-                  TextComponent(
-                    text: "SDG",
-                    colorText: Colors.black,
-                    fontSize: 18.0,
+                  Expanded(
+                    child: Container(
+                      height: media.height*.04,
+                      alignment: Alignment.bottomLeft,
+                      child: TextComponent(
+                        text: "SDG",
+                        colorText: Colors.black,
+                        fontSize: 18.0,
+                      ),
+                    ),
                   ),
                 ],
               ),

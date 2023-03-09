@@ -8,6 +8,7 @@ import '../../components/general_button_component.dart';
 import '../../components/genral_padding.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
+import '../../drawer.dart';
 import 'add_balance_screen.dart';
 
 class MyWallet extends StatelessWidget {
@@ -48,15 +49,12 @@ class MyWallet extends StatelessWidget {
     final media = MediaQuery.of(context).size;
     return Scaffold(
       appBar: CustomAppBar(
-          needIconBell: true,
-          customSize: media.height * .12,
-          title: 'محفظتي',
-          onPressedButtonBack: () {
-            /// TODO : SOME THING
-          },
-          onPressedButtonMenu: () {
-            /// TODO : SOME THING
-          }),
+        needIconBell: true,
+        customSize: media.height * .12,
+        title: 'تغذية المحفظة',
+        needBackButton: true,
+      ),
+      drawer: MainDrawer(),
       drawerDragStartBehavior: DragStartBehavior.down,
       endDrawer: DrawerComponent(),
       body: GeneralPadding(
@@ -65,27 +63,34 @@ class MyWallet extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                TextComponent(
-                  text: "210.540",
-                  isBold: true,
-                  colorText: Colors.green,
-                  fontSize: 50.0,
-                  fontFamily: "Anton",
-                ),
-                SpaceComponent(
-                  width: media.width * .02,
-                ),
-                TextComponent(
-                  text: "SDG",
-                  colorText: Colors.black,
-                  fontSize: 18.0,
-                ),
-              ],
-            ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                 TextComponent(
+                      text: "210.540",
+                      isBold: true,
+                      colorText: Colors.green,
+                      fontSize: 50.0,
+                      fontFamily: "Anton",
+                    ),
+
+                  SpaceComponent(
+                    width: media.width * .02,
+                  ),
+                   Container(
+                      height: media.height*.04,
+                      alignment: Alignment.bottomLeft,
+                      child: TextComponent(
+                        text: "SDG",
+                        colorText: Colors.black,
+                        fontSize: 18.0,
+                      ),
+                    ),
+
+                ],
+              ),
+
             SpaceComponent(height: media.height * .04),
             DirectionalityComponent(
               child: GeneralButton(
