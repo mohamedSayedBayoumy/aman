@@ -9,6 +9,7 @@ import '../../components/genral_padding.dart';
 import '../../components/home_screen_component/exchange_rate_component.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
+import '../../drawer.dart';
 
 class ExchangeRateScreen extends StatelessWidget {
   const ExchangeRateScreen({Key? key}) : super(key: key);
@@ -18,18 +19,14 @@ class ExchangeRateScreen extends StatelessWidget {
     final media = MediaQuery.of(context).size;
     return Scaffold(
         appBar: CustomAppBar(
-            needIconBell: true,
-            customSize: media.height * .12,
-            title: 'سعر الصرف',
-            onPressedButtonBack: () {
-              /// TODO : SOME THING
-            },
-            onPressedButtonMenu: () {
-              /// TODO : SOME THING
-            }),
+          needIconBell: true,
+          needBackButton: true,
+          customSize: media.height * .12,
+          title: 'تفاصيل التحويل',
+        ),
+        drawer: MainDrawer(),
         drawerDragStartBehavior: DragStartBehavior.down,
-        endDrawer:    DrawerComponent(),
-
+        endDrawer:  DrawerComponent(),
         body: GeneralPadding(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

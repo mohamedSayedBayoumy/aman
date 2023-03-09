@@ -261,7 +261,7 @@ class _MainDrawerState extends State<MainDrawer> {
                 NGUI.setRoot(NGLoginScreen());
               */
                 Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const LoginScreen()));
+                      MaterialPageRoute(builder: (context) =>   LoginScreen()));
               },
             ),
           ],

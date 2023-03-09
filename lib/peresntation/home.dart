@@ -1,10 +1,13 @@
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:test2/peresntation/screens/exchange_rate_screen/exchange_rate.dart';
 import 'package:test2/peresntation/screens/transactions_screens/last_transactions.dart';
-import 'package:test2/peresntation/screens/transfer_screens/test_add_new_transfer_screen.dart';
+import 'package:test2/peresntation/screens/transfer_screens/add_new_transfer_screen.dart';
 import 'package:test2/peresntation/screens/wallet/wallet_details.dart';
 
+import 'components/app_bar/custom_app_bar.dart';
+import 'components/app_bar/drawer_component.dart';
 import 'drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,19 +20,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final media = MediaQuery.of(context).size;
+
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Aman Exchange'),
-          centerTitle: true,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(left: 5.0, right: 5.0),
-              child: GestureDetector(
-                  child: const Icon(Icons.notifications), onTap: () {}),
-            )
-          ],
-        ),
+        appBar: CustomAppBar(
+            needIconBell: true,
+            needBackButton: false,
+            customSize: media.height * .12,
+            title: "Aman Exchange",
+            ),
         drawer: MainDrawer(),
+        drawerDragStartBehavior: DragStartBehavior.down,
+        endDrawer:    DrawerComponent(),
         backgroundColor: const Color(0xffF3F5F9),
         body: Container(
           decoration: const BoxDecoration(
@@ -104,7 +106,8 @@ class _HomePageState extends State<HomePage> {
               Padding(
                   padding: const EdgeInsets.all(10),
                   child: Image.asset(
-                    image ?? '',
+                    image  ,
+                    // image ?? '',
                     height: 70,
                     width: 70,
                     color: Theme.of(context).primaryColor,
@@ -112,7 +115,8 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: Text(
-                  title ?? "",
+                  title ,
+                  // title ?? "",
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                       color: Color(0xff273071),

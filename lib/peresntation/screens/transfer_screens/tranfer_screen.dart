@@ -9,6 +9,7 @@ import '../../components/genral_padding.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
 import '../../components/textfiled_component.dart';
+import '../../drawer.dart';
 
 class TransferScreen extends StatefulWidget {
   TransferScreen({Key? key}) : super(key: key);
@@ -92,15 +93,13 @@ class _TransferScreenState extends State<TransferScreen> {
     final media = MediaQuery.of(context).size;
     return Scaffold(
       appBar: CustomAppBar(
-          needIconBell: true,
-          customSize: media.height * .12,
-          title: 'التحويل',
-          onPressedButtonBack: () {
-            /// TODO : SOME THING
-          },
-          onPressedButtonMenu: () {
-            /// TODO : SOME THING
-          }),
+        needBackButton: true,
+        needIconBell: true,
+        customSize: media.height * .12,
+        title: 'التحويل',
+      ),
+      drawer: MainDrawer(),
+
       drawerDragStartBehavior: DragStartBehavior.down,
       endDrawer: DrawerComponent(),
       body: GeneralPadding(
@@ -109,36 +108,38 @@ class _TransferScreenState extends State<TransferScreen> {
           physics: const BouncingScrollPhysics(),
           children: [
             DropList(list: TransferScreen.data, value: dataController),
-           SizedBox(
-             height: media.height*.09,
-                child: AnimatedCrossFade(
-                    firstChild: Padding(
-                      padding: EdgeInsets.only(top: media.height * .03),
-                      child: CustomTextField(
-                        textInputType: TextInputType.number,
-                        controller: fromControllerOne,
-                        labelText: "المبلغ المراد تحويله",
-                      ),
+            SpaceComponent(
+              height: media.height * .03,
+            ),
+            SizedBox(
+              height: media.height * .09,
+              child: AnimatedCrossFade(
+                  firstChild: Padding(
+                    padding: EdgeInsets.only(top: media.height * .01),
+                    child: CustomTextField(
+                      textInputType: TextInputType.number,
+                      controller: fromControllerOne,
+                      labelText: "المبلغ المراد تحويله",
                     ),
-                    secondChild: Padding(
-                        padding: EdgeInsets.only(top: media.height * .03),
-                        child: CustomTextField(
-                          onTap: () {
-                            setState(() {
-                              controller = !controller;
-                              toController.clear();
-                            });
-                          },
-                          textInputType: TextInputType.number,
-                          controller: fromControllerTwo,
-                          labelText: "المبلغ المراد تحويله",
-                        )),
-                    crossFadeState: controller == true
-                        ? CrossFadeState.showFirst
-                        : CrossFadeState.showSecond,
-                    duration: const Duration(milliseconds: 0)),
-              ),
-
+                  ),
+                  secondChild: Padding(
+                      padding: EdgeInsets.only(top: media.height * .01),
+                      child: CustomTextField(
+                        onTap: () {
+                          setState(() {
+                            controller = !controller;
+                            toController.clear();
+                          });
+                        },
+                        textInputType: TextInputType.number,
+                        controller: fromControllerTwo,
+                        labelText: "المبلغ المراد تحويله",
+                      )),
+                  crossFadeState: controller == true
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
+                  duration: const Duration(milliseconds: 0)),
+            ),
             SpaceComponent(
               height: media.height * .03,
             ),

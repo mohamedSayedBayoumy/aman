@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:test2/peresntation/components/text_component.dart';
 import 'package:test2/peresntation/screens/home_screen/home_screen.dart';
 
 class Intro extends StatefulWidget {
@@ -13,6 +13,8 @@ class _IntroPageState extends State<Intro> {
 
   @override
   Widget build(BuildContext context) {
+    final media = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -39,37 +41,38 @@ class _IntroPageState extends State<Intro> {
                         width: 300,
                       ),
                     ),
-                    const Padding(
-                      padding:   EdgeInsets.symmetric(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: 32, vertical: 16.0),
                       child: Center(
-                        child: Text(
-                          "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.grey, fontSize: 12.0),
-                        ),
+                        child: TextComponent(
+                            needTextAlignInCenter: true,
+                            colorText: Colors.white,
+                            fontSize: 12.0,
+                            text:
+                                "  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو"),
                       ),
                     ),
                   ],
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+
                   children: <Widget>[
                     Image.asset(
                       'assets/imgs/secondscreen.png',
                       height: 300,
                       width: 300,
                     ),
-                    const Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 16.0),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal:media.width*.03, vertical: media.height*.02),
                       child: Center(
-                        child: Text(
-                          "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.grey, fontSize: 12.0),
-                        ),
+                        child: TextComponent(
+                            needTextAlignInCenter: true,
+                            colorText: Colors.white,
+                            fontSize: 12.0,
+                            text:
+                                "  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو"),
                       ),
                     ),
                   ],
@@ -85,15 +88,16 @@ class _IntroPageState extends State<Intro> {
                         width: 300,
                       ),
                     ),
-                    const Padding(
+                    Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 32, vertical: 16.0),
                       child: Center(
-                        child: Text(
-                          "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.grey, fontSize: 12.0),
-                        ),
+                        child: TextComponent(
+                            needTextAlignInCenter: true,
+                            colorText: Colors.white,
+                            fontSize: 12.0,
+                            text:
+                                "  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو"),
                       ),
                     ),
                   ],
@@ -101,7 +105,7 @@ class _IntroPageState extends State<Intro> {
               ],
             ),
             Positioned(
-              bottom: 16.0,
+              bottom: media.height*.03,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Column(
@@ -127,8 +131,8 @@ class _IntroPageState extends State<Intro> {
                                       ],
                                     ),
                                   ),
-                                  child:const Padding(
-                                    padding:  EdgeInsets.all(5.0),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(5.0),
                                     child: Text('التالي',
                                         style: TextStyle(
                                             color: Colors.white,
@@ -161,7 +165,7 @@ class _IntroPageState extends State<Intro> {
                                     ),
                                   ),
                                   child: const Padding(
-                                    padding: const EdgeInsets.all(5.0),
+                                    padding: EdgeInsets.all(5.0),
                                     child: Text('انهاء',
                                         style: TextStyle(
                                             color: Colors.white,
@@ -173,8 +177,8 @@ class _IntroPageState extends State<Intro> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => const HomeScreen()));
-                         
+                                          builder: (context) =>
+                                              const HomeScreen()));
                                 },
                               ),
                         const SizedBox(
@@ -185,17 +189,17 @@ class _IntroPageState extends State<Intro> {
                           child: TextButton(
                             child: const Text(
                               'تخطي',
-                              style:   TextStyle(
+                              style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 14),
                             ),
                             onPressed: () {
-                              
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => const HomeScreen()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const HomeScreen()));
 //                              NGUI.push(FirstScreen());
                             },
                           ),

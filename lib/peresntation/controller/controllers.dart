@@ -18,7 +18,7 @@ class Controller {
   static List demoDetailsData = [
     DetailsData(address: "الرقم التسلسلي", data: "1234"),
     DetailsData(
-        address: "تاريخ و وقت تنفيذ العمليه", data: "12:20 / 11-11-2023"),
+        address: "تاريخ و وقت تنفيذ العمليه", data: "09:59 - 29/09/2029"),
     DetailsData(address: "اسم المستلم", data: "احمد علي"),
     DetailsData(address: "رقم الهاتف", data: "123456789"),
     DetailsData(address: "البلد و المدينه", data: "السودان - الخرطوم"),
