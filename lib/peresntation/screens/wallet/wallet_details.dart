@@ -9,6 +9,7 @@ import '../../components/genral_padding.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
 import '../../drawer.dart';
+import '../transactions_screens/current_transactions.dart';
 import 'add_balance_screen.dart';
 
 class MyWallet extends StatelessWidget {
@@ -137,7 +138,9 @@ class MyWallet extends StatelessWidget {
                       child: Column(children: [
                         Row(
                           children: [
-                            IconButton(onPressed: () {}, icon: icons[index]),
+                            IconButton(onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => CurrentTransactionsScreen(showWidget: true,),)) ;
+                            }, icon: icons[index]),
                             TextComponent(
                               text: data[index].nameAr,
                               fontSize: 18.0,
