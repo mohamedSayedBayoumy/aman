@@ -1,16 +1,19 @@
- import 'package:flutter/material.dart';
-import 'package:test2/peresntation/intro.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/material.dart';
+import 'peresntation/intro.dart';
 
+import 'peresntation/screens/transfer_screens/add_new_transfer_screen.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+ void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
 
   runApp(
-    const MyApp(),
-
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const MyApp(),
+    ),
   );
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -18,7 +21,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -27,7 +32,7 @@ class MyApp extends StatelessWidget {
         // secondaryColor = Color(0xffffffff),
         primarySwatch: Colors.blue,
       ),
-      home:   Intro(),
+      home: AddNewTransferScreen(),
     );
   }
 }

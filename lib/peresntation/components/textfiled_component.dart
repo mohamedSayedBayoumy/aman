@@ -70,9 +70,9 @@ class CustomTextField extends StatelessWidget {
       width: width,
       height: height,
 
-      child: Theme(
-        data: Theme.of(context).copyWith(
-            colorScheme:   ColorScheme.light(primary: enabledBorderColor?? Colors.grey)),
+        child: Theme(
+          data: Theme.of(context).copyWith(
+              colorScheme:   ColorScheme.light(primary: enabledBorderColor?? Colors.grey)),
         child: DirectionalityComponent(
           child: TextFormField(
             onFieldSubmitted: onFieldSubmitted ,
@@ -108,7 +108,7 @@ class CustomTextField extends StatelessWidget {
                   borderSide:
                       BorderSide(color: borderColor ?? Colors.black87)),
               border: styleBorder ?? OutlineInputBorder(
-                borderRadius: BorderRadius.circular(enabledBorderCurve ?? 10),
+                borderRadius: BorderRadius.circular(enabledBorderCurve ?? 9),
               ),
             ),
           ),
